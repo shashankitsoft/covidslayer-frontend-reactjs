@@ -9,7 +9,7 @@ function Home(){
 
     const {rootState,logoutUser} = useContext(MyContext);
     const {isAuth,theUser,showLogin} = rootState;
-console.log(isAuth);
+
     // If user Logged in
     if(isAuth)
     {

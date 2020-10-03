@@ -65,7 +65,7 @@ class MyContextProvider extends Component{
 
         // If inside the local-storage has the JWT token
         if(loginToken){
-
+            console.log("context");
             //Adding JWT token to axios default header
             Axios.defaults.headers.common['Authorization'] = 'bearer '+loginToken;
 
