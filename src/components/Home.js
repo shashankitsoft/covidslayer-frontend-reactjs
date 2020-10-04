@@ -11,8 +11,10 @@ function Home(){
             <div className="_img"><span role="img" aria-label="User Image">👦</span></div>
             <h1>{theUser.fullname}</h1>
             <div className="_email"><span>{theUser.email}</span></div>
-            <button onClick={playNewGame}>Play New Game</button>
-            Game History
+            <hr width="40px"/>
+            <h2>Covid Slayer</h2>
+            <button onClick={playNewGame}>Play New Game</button>&nbsp;
+            <button>Game History</button>&nbsp;
             <button onClick={logoutUser}>Logout</button>
         </div>
     )

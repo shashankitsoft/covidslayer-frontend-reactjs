@@ -3,7 +3,7 @@ import {MyContext} from '../contexts/MyContext'
 
 function NewGameC(){
 
-    const {rootState,logoutUser} = useContext(MyContext);
+    const {rootState,logoutUser,gotoHome} = useContext(MyContext);
     const {theUser} = rootState;
 
     return(
@@ -11,10 +11,12 @@ function NewGameC(){
             <div className="_img"><span role="img" aria-label="User Image">👦</span></div>
             <div className="username"><b>Player Name: </b>{theUser.fullname}</div>
             <div className="_email"><b>Email: </b>{theUser.email}</div>
-            <h1>New Game Screen</h1>
+            <hr width="40px"/>
+            <h1>Covid Slayer</h1>
+            <h2>New Game Screen</h2>
             
-            This is New Game
-            Game History
+            <div className="playBox"></div>
+            <button onClick={gotoHome}>Home</button>&nbsp;
             <button onClick={logoutUser}>Logout</button>
         </div>
     )

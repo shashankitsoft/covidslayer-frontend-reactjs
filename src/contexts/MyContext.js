@@ -35,12 +35,13 @@ class MyContextProvider extends Component{
         localStorage.removeItem('loginToken');
         this.setState({
             ...this.state,
-            isAuth:false
+            isAuth:false,
+            theUser:null
         })
+        delete Axios.defaults.headers.common["Authorization"];
     }
 
     registerUser = async (user) => {
-
         // Sending the user registration request
         const register = await Axios.post('restauth/register.json',{
             fullname:user.name,
@@ -85,11 +86,16 @@ class MyContextProvider extends Component{
         }
     }
 
-    playNewGame = () => {
-        
+    playNewGame = () => {        
         this.setState({
             ...this.state,
             page:"newGame"
+        })
+    }
+    gotoHome = () => {        
+        this.setState({
+            ...this.state,
+            page:"home"
         })
     }
     render(){
@@ -100,7 +106,8 @@ class MyContextProvider extends Component{
             registerUser:this.registerUser,
             loginUser:this.loginUser,
             logoutUser:this.logoutUser,
-            playNewGame:this.playNewGame
+            playNewGame:this.playNewGame,
+            gotoHome:this.gotoHome
         }
         return(
             <MyContext.Provider value={contextValue}>
