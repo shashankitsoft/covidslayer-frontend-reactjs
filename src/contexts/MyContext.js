@@ -17,6 +17,8 @@ class MyContextProvider extends Component{
         showLogin:true,
         isAuth:false,
         theUser:null,
+        page:'home',
+        newGame:false
     }
 
     // Toggle between Login & Signup page
@@ -65,7 +67,6 @@ class MyContextProvider extends Component{
 
         // If inside the local-storage has the JWT token
         if(loginToken){
-            console.log("context");
             //Adding JWT token to axios default header
             Axios.defaults.headers.common['Authorization'] = 'bearer '+loginToken;
 
@@ -84,6 +85,13 @@ class MyContextProvider extends Component{
         }
     }
 
+    playNewGame = () => {
+        
+        this.setState({
+            ...this.state,
+            page:"newGame"
+        })
+    }
     render(){
         const contextValue = {
             rootState:this.state,
@@ -91,7 +99,8 @@ class MyContextProvider extends Component{
             isLoggedIn:this.isLoggedIn,
             registerUser:this.registerUser,
             loginUser:this.loginUser,
-            logoutUser:this.logoutUser
+            logoutUser:this.logoutUser,
+            playNewGame:this.playNewGame
         }
         return(
             <MyContext.Provider value={contextValue}>

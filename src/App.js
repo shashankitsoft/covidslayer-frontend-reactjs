@@ -3,12 +3,15 @@ import React from 'react';
 //import './App.css';
 // Importing the Context Provider & Home Component
 import MyContextProvider from './contexts/MyContext';
-import Home from './components/Home'
+// import Home from './components/Home'
+import UserPanel from './components/UserPanel'
+
 
 function App() {
+  // <Home/>
   return (
     <MyContextProvider>
-        <Home/>
+        <UserPanel/>        
     </MyContextProvider>
   );
 }
